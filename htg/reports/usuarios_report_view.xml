@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="usuarios_report_template">
+            <t t-call="web.html_container">
+                <head>
+
+                    <style type="text/css">
+            
+                    .test-result-table {
+            
+                        border: 1px solid black;
+                        width: 800px;
+                    }
+            
+                    .test-result-table-header-cell {
+            
+                        text-align: center;
+                        border-bottom: 1px solid black;
+                        
+                        background-color: silver;
+                    }
+            
+                    .test-result-step-command-cell {
+                        text-align: center;
+                        border-bottom: 1px solid gray;
+                        border-left: 1px solid black;
+                    }
+            
+                    .test-result-step-description-cell {
+                        border-left: 1px solid black;
+                        text-align: center;
+                        border-bottom: 1px solid gray;
+                    }
+
+
+            
+                    </style>
+                </head>
+
+                <div class="page">
+                    <br />
+                    <t t-foreach='docs' t-as='o'>
+                        <img src='/htg/static/description/icon.png' style="max-height: 45px;"/>
+                        <h1>
+                            Reporte de juegos del usuario:
+                            <span t-field=" o.name" />
+                        </h1>
+                        <table class="test-result-table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td class="test-result-table-header-cell">
+                                            Nombre del juego
+                                        </td>
+                                    <td class="test-result-table-header-cell">
+                                            Foto del juego
+                                        </td>
+                                    <td class="test-result-table-header-cell">
+                                            Creador
+                                        </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="test-result-step-row test-result-step-row-altone" t-foreach='o.collection' t-as='line'>
+                                    <td class="test-result-step-command-cell">
+                                        <span t-esc="line.name" />
+                                    </td>
+                                    <td class="test-result-step-description-cell">
+                                        <img t-attf-src="data:image/*;base64,{{line.photo}}" height="80px" />
+                                    </td>
+                                    <td class="test-result-step-command-cell">
+                                        <span t-esc="line.creator.name" />
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </t>
+                </div>
+
+                <!-- <body>
+                    <h1 class="test-results-header">
+                            Test Report
+                        </h1>
+
+
+                </body> -->
+
+            </t>
+        </template>
+    </data>
+</odoo>

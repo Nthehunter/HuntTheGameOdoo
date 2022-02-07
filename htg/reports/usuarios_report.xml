@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.report" id="htg.htg_usuarios_report">
+            <field name="name">Reporte Usuarios</field>
+            <field name="model">htg.usuarios</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">htg.usuarios_report_template</field>
+            <field name="report_file">htg.usuarios_report_template</field>
+            <field name="binding_model_id" ref="htg.model_htg_usuarios"/>
+            <field name="binding_type">report</field>
+            </record> 
+           
+    </data>
+</odoo>

@@ -1,0 +1,116 @@
+<odoo>
+  <data>
+    <odoo>
+      <data>
+
+        <record model="ir.ui.view" id="htg.juegos_tree">
+          <field name="name">htg.juegos.tree</field>
+          <field name="model">htg.juegos</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name" />
+              <field name="creator" />
+              <field name="photo" widget="image_popup" height="50px" width="50px" />
+            </tree>
+          </field>
+        </record>
+
+        <record model="ir.ui.view" id="htg.juegos_form">
+          <field name="name">htg.juegos.form</field>
+          <field name="model">htg.juegos</field>
+          <field name="arch" type="xml">
+            <form>
+              <group colspan="4" col="4">
+                <field name="name" />
+                <field name="photo" widget="image_popup" height="250px" width="250px" />
+                <field name="creator" />
+              </group>
+            </form>
+          </field>
+
+        </record>
+
+
+
+        <!-- <record id="sh_message_wizard" model="ir.ui.view">
+          
+      </record> -->
+
+
+        <record model="ir.ui.view" id="htg.usuarios_tree">
+          <field name="name">htg.usuarios.tree</field>
+          <field name="model">htg.usuarios</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="email" />
+              <field name="name" />
+              <field name="photo" widget="image_popup" height="50px" width="50px" />
+              <field name="collection" />
+            </tree>
+          </field>
+        </record>
+
+        <record model="ir.ui.view" id="htg.usuarios_form">
+          <field name="name">htg.usuarios.form</field>
+          <field name="model">htg.usuarios</field>
+          <field name="arch" type="xml">
+            <form>
+              <group colspan="3" col="3">
+                <field name="photo" widget="image_popup" height="150px" width="150px" />
+                <field name="email" />
+                <field name="name" />
+                <field name="password" password="True" groups="htg.grupo_admin" />
+                <field name="collection" />
+              </group>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="htg.juegos_action_window">
+          <field name="name">Juegos</field>
+          <field name="res_model">htg.juegos</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="res_partner_view_form_inherit_htg" model="ir.ui.view">
+          <field name="name">res.partner.view.form.inherit.htg</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form" />
+          <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+              <page string="Juegos realizados" name="Ficha_juegos">
+                <field name="juegos">
+                  <tree>
+                    <field name="name" />
+                    <field name="photo" widget="image_popup" height="50px" width="50px" />
+                  </tree>
+                </field>
+              </page>
+            </xpath>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="htg.usuarios_action_window">
+          <field name="name">Usuarios</field>
+          <field name="res_model">htg.usuarios</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú principal -->
+
+        <menuitem name="Hunt the game" id="htg.menu_root" />
+
+        <!-- Submenú -->
+        <menuitem name="Módulos" id="htg.juegos_menu" parent="htg.menu_root" />
+
+
+        <!-- Opciondes del menú -->
+        <menuitem name="Juegos" id="htg.juegos_menu_juegos" parent="htg.juegos_menu" action="htg.juegos_action_window" />
+
+        <menuitem name="Usuarios" id="htg.juegos_menu_usuarios" parent="htg.juegos_menu" action="htg.usuarios_action_window" />
+
+      </data>
+    </odoo>
+  </data>
+</odoo>

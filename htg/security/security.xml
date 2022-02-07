@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- GRUPO ADMIN -->
+        <record id="grupo_admin" model="res.groups">
+            <field name="name">HuntTheGame/Administrador</field>
+            <field name="comment">Perfil de administrador</field>
+        </record>
+
+        <!-- GRUPO USUARIOS -->
+        <record id="grupo_usuarios" model="res.groups">
+            <field name="name">HuntTheGame/usuarios</field>
+            <field name="comment">Perfil de usuario</field>
+        </record>
+
+         <!-- Permisos por defecto -->
+         <record id="base.user_admin" model="res.users">
+         <field name="groups_id" eval="[(4, ref('htg.grupo_admin'))]"/>
+            
+        </record>
+
+
+    </data>
+</odoo>

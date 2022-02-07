@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_htg_grupo_admin_juegos,htg.grupo.admin,model_htg_juegos,htg.grupo_admin,1,1,1,1
+access_htg_grupo_admin_usuarios,htg.grupo.admin,model_htg_usuarios,htg.grupo_admin,1,1,1,1
+
+access_htg_grupo_usuarios_juegos,htg.grupo.usuarios,model_htg_juegos,htg.grupo_usuarios,1,0,0,0
+access_htg_grupo_usuarios_usuarios,htg.grupo.usuarios,model_htg_usuarios,htg.grupo_usuarios,1,0,0,0
